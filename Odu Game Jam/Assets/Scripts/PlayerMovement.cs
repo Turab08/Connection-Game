@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isGrabbed;
 
-    void Awake() {
+    void Awake() 
+    {
         rb = GetComponent<Rigidbody2D>();    
     }
 
@@ -30,12 +31,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void LateUpdate() {
+    // Changed from LateUpdate to FixedUpdate so it syncs with the physics engine
+    void FixedUpdate() 
+    {
         if (isGrabbed && target != null)
         {
-            Vector2 targetPos = new Vector2(target.position.x, target.position.y);
-
-            transform.position = Vector2.SmoothDamp(transform.position, target.position, ref velocity, smoothTime);
+            // Calculate where we WANT to go
+            Vector2 nextPosition = Vector2.SmoothDamp(rb.position, target.position, ref velocity, smoothTime);
+            
+            // Tell the Rigidbody to move there (This will stop if it hits a wall!)
+            rb.MovePosition(nextPosition);
         }    
     }
 }
