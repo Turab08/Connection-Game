@@ -1021,6 +1021,7 @@ GameObject:
   - component: {fileID: 1188383457}
   - component: {fileID: 1188383458}
   - component: {fileID: 1188383459}
+  - component: {fileID: 1188383460}
   m_Layer: 0
   m_Name: Plug
   m_TagString: Player
@@ -1208,6 +1209,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LineController
   attachmentPlace: {fileID: 304525774}
   lineRenderer: {fileID: 546198808}
+--- !u!114 &1188383460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188383453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffa857716bcd304a919315e4c28102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotateToMouse
+  playerMovement: {fileID: 1188383458}
 --- !u!1 &1279856710
 GameObject:
   m_ObjectHideFlags: 0
