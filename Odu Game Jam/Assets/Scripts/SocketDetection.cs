@@ -7,7 +7,6 @@ public class SocketDetection : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Socket"))
             {
-                Debug.Log("Player detected in socket!");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
