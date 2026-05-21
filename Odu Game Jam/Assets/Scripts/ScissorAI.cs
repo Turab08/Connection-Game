@@ -6,19 +6,22 @@ public class ScissorAI : MonoBehaviour
     public Transform point1;
     public Transform point2;
     public float speed = 1f;
+    public float arrivalThreshold = 0.05f;
 
+    private Transform currentTarget;
 
+    void Start()
+    {
+        currentTarget = point1;
+    }
 
     void Update()
     {
-        if (point1.position.x < point2.position.x)
-        {
-            transform.position = Vector3.Lerp(transform.position, point1.position, Time.deltaTime * speed);
-        }
-        else
-        {
-            transform.position = Vector3.Lerp(transform.position, point2.position, Time.deltaTime * speed);
-        }
+        transform.position = Vector3.MoveTowards(
+            transform.position, currentTarget.position, speed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, currentTarget.position) < arrivalThreshold)
+            currentTarget = currentTarget == point1 ? point2 : point1;
     }
 }
 
