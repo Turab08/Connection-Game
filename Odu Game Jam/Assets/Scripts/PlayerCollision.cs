@@ -7,7 +7,7 @@ public class PlayerCollision : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Socket"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
 
             if (collision.gameObject.CompareTag("Start"))
@@ -19,8 +19,6 @@ public class PlayerCollision : MonoBehaviour
             {
                 Application.Quit();
             }
-
-            
         }
 }
 

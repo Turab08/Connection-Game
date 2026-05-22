@@ -1,5 +1,7 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScissorAI : MonoBehaviour
 {
@@ -25,6 +27,14 @@ public class ScissorAI : MonoBehaviour
             transform.Rotate(0, 0, 180f);
         }
 
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //Game over condition
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }    
     }
 }
 
