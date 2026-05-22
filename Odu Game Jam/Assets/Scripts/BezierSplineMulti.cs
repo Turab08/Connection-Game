@@ -22,6 +22,11 @@ public class BezierSpineMulti : MonoBehaviour
     public LayerMask colliderMask = ~0;
     public Transform[] ignoreObjects;
 
+    [Header("Cutting Logic")]
+    public LayerMask scissorsMask;
+    public bool isCut = false;
+    private bool _isBroken = false;
+
     private LineRenderer _lr;
     private List<RopeSegment> _segments = new List<RopeSegment>();
 
@@ -52,9 +57,16 @@ public class BezierSpineMulti : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (anchor == null || endTarget == null) return;
+        if (anchor == null || endTarget == null || isCut) return;
 
+        
         SimulatePhysics();
+
+        if (!_isBroken)
+        {
+            CheckForCutting();
+        }
+        
         ApplyConstraints();
     }
 
@@ -73,6 +85,38 @@ public class BezierSpineMulti : MonoBehaviour
             seg.posNow += velocity;
             seg.posNow += gravity * Time.fixedDeltaTime;
         }
+    }
+
+    private void CheckForCutting()
+    {
+        // Loop through all segments to see if any are overlapping a scissor collider
+        for (int j = 0; j < segmentCount; j++)
+        {
+            // Use the same ropeThickness you used for walls
+            Collider2D scissorHit = Physics2D.OverlapCircle(_segments[j].posNow, ropeThickness, scissorsMask);
+            
+            if (scissorHit != null)
+            {
+                HandleRopeCut(j);
+                break; 
+            }
+        }
+    }   
+
+    private void HandleRopeCut(int cutIndex)
+    {
+        if (_isBroken) return; // Prevent multiple cuts in one frame
+        _isBroken = true;
+
+        // 1. Remove all segments from the cut point to the end
+        // This makes the rope visually "end" where the scissors hit
+        if (cutIndex < _segments.Count - 1)
+        {
+            _segments.RemoveRange(cutIndex + 1, _segments.Count - (cutIndex + 1));
+        }
+
+        // 2. Update the segment count for the LineRenderer
+        segmentCount = _segments.Count;
     }
 
     private void ApplyConstraints()
@@ -109,7 +153,12 @@ public class BezierSpineMulti : MonoBehaviour
 
             // 2. Anchor Constraint
             _segments[0].posNow = anchor.position;
-            _segments[segmentCount - 1].posNow = endTarget.position;
+
+            // ONLY pin the endTarget if the rope is NOT broken
+            if (!_isBroken)
+            {
+                _segments[segmentCount - 1].posNow = endTarget.position;
+            }
 
             // 3. Collision Constraint (UPDATED to prevent fast-pull clipping)
             for (int j = 1; j < segmentCount - 1; j++)
@@ -134,6 +183,7 @@ public class BezierSpineMulti : MonoBehaviour
                 // STEP B: Static Collision (Resting Push-out)
                 // Standard check to gently push it out if it's resting against a wall
                 Collider2D overlapHit = Physics2D.OverlapCircle(seg.posNow, ropeThickness, colliderMask);
+
                 
                 if (overlapHit != null && !IsIgnored(overlapHit))
                 {
