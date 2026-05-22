@@ -25,7 +25,7 @@ public class BezierSpineMulti : MonoBehaviour
     [Header("Cutting Logic")]
     public LayerMask scissorsMask;
     public bool isCut = false;
-    private bool _isBroken = false;
+    public bool _isBroken = false;
 
     private LineRenderer _lr;
     private List<RopeSegment> _segments = new List<RopeSegment>();
