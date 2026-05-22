@@ -20,8 +20,11 @@ public class ScissorAI : MonoBehaviour
         transform.position = Vector3.MoveTowards(
             transform.position, currentTarget.position, speed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, currentTarget.position) < arrivalThreshold)
+        if (Vector3.Distance(transform.position, currentTarget.position) < arrivalThreshold) {
             currentTarget = currentTarget == point1 ? point2 : point1;
+            transform.Rotate(0, 0, 180f);
+        }
+
     }
 }
 
