@@ -3,24 +3,30 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
 {   
-    public AudioManager audioManager;
-
     void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Socket"))
             {
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.plugIn);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
 
             if (collision.gameObject.CompareTag("Start"))
             {
-                audioManager.PlugIn();
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.plugIn);
+                }
+
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
 
             if (collision.gameObject.CompareTag("Exit"))
             {
-                audioManager.PlugIn();
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.plugIn);
+                }
                 Application.Quit();
             }
         }

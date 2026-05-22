@@ -8,6 +8,7 @@ public class DeathHandler : MonoBehaviour
 {
     public BezierSpineMulti bezierSpineMulti;
     public Transform playerPosition;
+    public BoxCollider2D playerCollision;
 
     [SerializeField] ParticleSystem deathParticle; 
 
@@ -27,7 +28,9 @@ public class DeathHandler : MonoBehaviour
         if (deathParticle != null) {
             ParticleSystem particle = Instantiate(deathParticle, new Vector2(playerPosition.position.x, playerPosition.position.y), Quaternion.identity);
             Destroy(particle, 0.5f);
+            playerCollision.enabled = false;
         }
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.electricity);
         yield return new WaitForSeconds(0.5f);
 
         
