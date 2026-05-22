@@ -2,17 +2,30 @@ using UnityEngine;
 
 public class DoorOpening : MonoBehaviour
 {
-    
+    public bool isOpen = false;
+    public Vector3 targetPosition;
+    public float lerpSpeed = 5f;
 
-    public void OpenDoor()
+    void Start()
     {
-        Debug.Log("Door Opened!");
-        // Add your door opening logic here, such as playing an animation or disabling a collider
-        // For example, you could disable the door's collider to allow passage:
-        Collider2D doorCollider = GetComponent<Collider2D>();
-        if (doorCollider != null)
+        targetPosition = transform.position + new Vector3(0, 4f, 0); // Example target position above the door
+    }
+    void Update()
+    {
+        if (isOpen)
         {
-            doorCollider.enabled = false;
+            OpenDoor();
         }
+    }
+
+    void OpenDoor()
+    {
+        transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSpeed * Time.deltaTime);
+    }
+
+    public void ResetDoor()
+    {
+        isOpen = false;
+        transform.position = targetPosition - new Vector3(0, 4f, 0); // Reset to original position
     }
 }
