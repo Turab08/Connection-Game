@@ -437,6 +437,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &323161347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8560865367343150119, guid: a55fd96a50f864a788027d3000f85128, type: 3}
+  m_PrefabInstance: {fileID: 1077435821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7281113965ec7d4ab7e93828581c055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CableStaminaWheel
 --- !u!1001 &336648770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,6 +516,10 @@ PrefabInstance:
       propertyPath: followMouse
       value: 
       objectReference: {fileID: 1200468232}
+    - target: {fileID: 4889278062050909220, guid: f38a36ffe552b4ff68588dda70995e6a, type: 3}
+      propertyPath: cableStamina
+      value: 
+      objectReference: {fileID: 323161347}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8462790326538660625, guid: f38a36ffe552b4ff68588dda70995e6a, type: 3}
@@ -515,6 +530,11 @@ PrefabInstance:
 --- !u!4 &336648771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6671968626760553825, guid: f38a36ffe552b4ff68588dda70995e6a, type: 3}
+  m_PrefabInstance: {fileID: 336648770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &336648772 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3162179318510850052, guid: f38a36ffe552b4ff68588dda70995e6a, type: 3}
   m_PrefabInstance: {fileID: 336648770}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &356792133
@@ -1409,7 +1429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8560865367343150119, guid: a55fd96a50f864a788027d3000f85128, type: 3}
       propertyPath: lengthMagnifier
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8560865367343150119, guid: a55fd96a50f864a788027d3000f85128, type: 3}
       propertyPath: bezierSpineMulti
@@ -1449,7 +1469,7 @@ Transform:
   m_GameObject: {fileID: 1126707583}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.21, y: -2.96, z: 0}
+  m_LocalPosition: {x: 8, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1640,7 +1660,7 @@ Transform:
   m_GameObject: {fileID: 1327147880}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.82, y: -2.96, z: 0}
+  m_LocalPosition: {x: 4, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2542,8 +2562,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1645888442}
   - component: {fileID: 1645888441}
-  - component: {fileID: 1645888440}
   - component: {fileID: 1645888443}
+  - component: {fileID: 1645888444}
   m_Layer: 0
   m_Name: Box
   m_TagString: Box
@@ -2551,43 +2571,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!70 &1645888440
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645888439}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
 --- !u!212 &1645888441
 SpriteRenderer:
   serializedVersion: 2
@@ -2656,7 +2639,7 @@ Transform:
   m_GameObject: {fileID: 1645888439}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.66577, y: 3.5, z: 0}
+  m_LocalPosition: {x: 0.97, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2689,6 +2672,52 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &1645888444
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645888439}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1774638837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,6 +2955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DeathHandler
   bezierSpineMulti: {fileID: 198396648}
   playerPosition: {fileID: 505180152}
+  playerCollision: {fileID: 336648772}
   deathParticle: {fileID: 1039134227921068909, guid: 0042ed60747bee74eb0b41ddac028861, type: 3}
 --- !u!4 &1945141903
 Transform:
@@ -3347,7 +3377,7 @@ PrefabInstance:
       objectReference: {fileID: 336648771}
     - target: {fileID: 8109129502680066575, guid: 77d0e4567afe24df4a9f96dbec1063c8, type: 3}
       propertyPath: segmentCount
-      value: 120
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8109129502680066575, guid: 77d0e4567afe24df4a9f96dbec1063c8, type: 3}
       propertyPath: ropeThickness

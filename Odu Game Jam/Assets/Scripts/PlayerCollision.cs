@@ -14,13 +14,19 @@ public class PlayerCollision : MonoBehaviour
 
             if (collision.gameObject.CompareTag("Start"))
             {
-                audioManager.PlugIn();
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.plugIn);
+                }
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
 
             if (collision.gameObject.CompareTag("Exit"))
             {
-                audioManager.PlugIn();
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.plugIn);
+                }
                 Application.Quit();
             }
         }

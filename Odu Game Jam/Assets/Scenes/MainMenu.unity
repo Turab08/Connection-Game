@@ -165,7 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb91ee0275ea97d47a924eefc63d5ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  sfx: {fileID: 1290955324}
+  musicSource: {fileID: 1055434612}
+  sfxSource: {fileID: 1290955324}
+  mainMenuMusic: {fileID: 8300000, guid: 188ca5041ce3dc540a5732f232b766de, type: 3}
+  levelMusic: {fileID: 0}
   plugIn: {fileID: 8300000, guid: d1c6478443a96eb42995c4ba8e73cc4d, type: 3}
 --- !u!1 &72690408
 GameObject:
@@ -739,7 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71705e00d24794b94bfe0c6d00013ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SocketDetection
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 5954021}
 --- !u!114 &319063563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1575,7 +1578,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 188ca5041ce3dc540a5732f232b766de, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1

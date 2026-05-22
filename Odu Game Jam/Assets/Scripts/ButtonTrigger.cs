@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonTrigger : MonoBehaviour
 {
@@ -8,10 +9,18 @@ public class ButtonTrigger : MonoBehaviour
     {
         Debug.Log("Collision Detected with: " + collision.gameObject.name);
 
-        if (collision.gameObject.CompareTag("Box"))
+        if (SceneManager.GetActiveScene().buildIndex == 3)
         {
-            Debug.Log("Button Triggered!");
-            door.isOpen = true;
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                door.isOpen = true;
+            }
+        }
+        else {
+            if (collision.gameObject.CompareTag("Box"))
+            {
+                door.isOpen = true;
+            }
         }
     }
 }
