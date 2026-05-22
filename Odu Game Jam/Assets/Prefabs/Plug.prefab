@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 3508063513137886438}
   - component: {fileID: 5457484838363387535}
   - component: {fileID: 4889278062050909220}
-  - component: {fileID: 8420865582366269838}
   - component: {fileID: 4083227178720851185}
   - component: {fileID: 2831127166826329886}
   - component: {fileID: 3162179318510850052}
@@ -236,20 +235,6 @@ MonoBehaviour:
   target: {fileID: 0}
   smoothTime: 0.1
   isGrabbed: 0
---- !u!114 &8420865582366269838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4225889669540825583}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4599be59b4c2aa40928112aa4f3a0a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LineController
-  attachmentPlace: {fileID: 6671968626760553825}
-  lineRenderer: {fileID: 0}
 --- !u!114 &4083227178720851185
 MonoBehaviour:
   m_ObjectHideFlags: 0

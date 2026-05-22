@@ -603,11 +603,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!120 &546198808 stripped
-LineRenderer:
-  m_CorrespondingSourceObject: {fileID: 6143604166655508894, guid: 77d0e4567afe24df4a9f96dbec1063c8, type: 3}
-  m_PrefabInstance: {fileID: 7761609299926238668}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,15 +1703,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8420865582366269838, guid: f38a36ffe552b4ff68588dda70995e6a, type: 3}
-      propertyPath: lineRenderer
-      value: 
-      objectReference: {fileID: 546198808}
     - target: {fileID: 8462790326538660625, guid: f38a36ffe552b4ff68588dda70995e6a, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1790,9 +1782,17 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8109129502680066575, guid: 77d0e4567afe24df4a9f96dbec1063c8, type: 3}
+      propertyPath: ignoreObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109129502680066575, guid: 77d0e4567afe24df4a9f96dbec1063c8, type: 3}
       propertyPath: 'ignoreObjects.Array.data[0]'
       value: 
       objectReference: {fileID: 18953116}
+    - target: {fileID: 8109129502680066575, guid: 77d0e4567afe24df4a9f96dbec1063c8, type: 3}
+      propertyPath: 'ignoreObjects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 855877643}
     - target: {fileID: 8633365639825708491, guid: 77d0e4567afe24df4a9f96dbec1063c8, type: 3}
       propertyPath: m_Name
       value: Line
