@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource loopingSfxSource;
 
     [Header("Music Tracks")]
     public AudioClip mainMenuMusic;
@@ -15,6 +16,10 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX Tracks")]
     public AudioClip plugIn;
+    public AudioClip scissors;
+    public AudioClip button;
+    public AudioClip door;
+    public AudioClip electricity;
     
     void Awake()
     {
@@ -47,7 +52,6 @@ public class AudioManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene Loaded: " + scene.name); // Check your console!
         
         if (scene.name == "MainMenu") 
         {
@@ -72,5 +76,12 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(AudioClip clip)
     {
         sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlayLoopingSFX(AudioClip clip)
+    {
+        loopingSfxSource.clip = clip;
+        loopingSfxSource.loop = true;
+        loopingSfxSource.Play();
     }
 }

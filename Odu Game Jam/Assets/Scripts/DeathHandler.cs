@@ -30,6 +30,7 @@ public class DeathHandler : MonoBehaviour
             Destroy(particle, 0.5f);
             playerCollision.enabled = false;
         }
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.electricity);
         yield return new WaitForSeconds(0.5f);
 
         

@@ -14,6 +14,7 @@ public class ScissorAI : MonoBehaviour
 
     void Start()
     {
+        AudioManager.Instance.PlayLoopingSFX(AudioManager.Instance.scissors);
         currentTarget = point1;
     }
 
@@ -34,6 +35,7 @@ public class ScissorAI : MonoBehaviour
         {
             //Game over condition
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.electricity);
         }    
     }
 

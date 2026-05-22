@@ -15,12 +15,17 @@ public class ButtonTrigger : MonoBehaviour
             {
                 door.isOpen = true;
             }
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.button);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.door);
         }
         else {
             if (collision.gameObject.CompareTag("Box"))
             {
                 door.isOpen = true;
             }
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.button);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.door);
         }
+
     }
 }
