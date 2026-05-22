@@ -427,6 +427,10 @@ PrefabInstance:
       propertyPath: followMouse
       value: 
       objectReference: {fileID: 1200468232}
+    - target: {fileID: 4889278062050909220, guid: f38a36ffe552b4ff68588dda70995e6a, type: 3}
+      propertyPath: cableStamina
+      value: 
+      objectReference: {fileID: 8560865367316616603}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8462790326538660625, guid: f38a36ffe552b4ff68588dda70995e6a, type: 3}
@@ -707,6 +711,17 @@ LineRenderer:
   m_CorrespondingSourceObject: {fileID: 6143604166655508894, guid: 77d0e4567afe24df4a9f96dbec1063c8, type: 3}
   m_PrefabInstance: {fileID: 2141723699}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1034203601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8109129502680066575, guid: 77d0e4567afe24df4a9f96dbec1063c8, type: 3}
+  m_PrefabInstance: {fileID: 2141723699}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6de7f763a00c4d87a6c918a90656c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BezierSpineMulti
 --- !u!1 &1200468231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,13 +1741,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095465384928255924}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16862746, g: 0.5921569, b: 0.1254902, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1836,7 +1851,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3413498771221667605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1943,10 +1958,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CableStaminaWheel
   cableLineRenderer: {fileID: 1034203600}
+  bezierSpineMulti: {fileID: 1034203601}
   fillImage: {fileID: 919505371875284310}
-  maxCableLength: 16
-  colorFull: {r: 0.2, g: 0.78, b: 0.45, a: 1}
-  colorEmpty: {r: 0, g: 0, b: 0, a: 1}
+  maxCableLength: 0
+  lengthMagnifier: 10
+  colorFull: {r: 0, g: 0, b: 0, a: 1}
+  colorEmpty: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &8935365118203592687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1954,13 +1971,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8149286025961943510}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
