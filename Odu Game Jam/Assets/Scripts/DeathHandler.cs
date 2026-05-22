@@ -7,25 +7,30 @@ using UnityEngine.SceneManagement;
 public class DeathHandler : MonoBehaviour
 {
     public BezierSpineMulti bezierSpineMulti;
+    public Transform playerPosition;
 
     [SerializeField] ParticleSystem deathParticle; 
 
+    private bool isAlive = true;
     void Update()
     {
         //If cable is cut
-        if (bezierSpineMulti._isBroken)
+        if (bezierSpineMulti._isBroken && isAlive)
         {
             StartCoroutine(Death());
+            isAlive = false;
         }
     }
 
     IEnumerator Death()
     {
         if (deathParticle != null) {
-            deathParticle.Play();
+            ParticleSystem particle = Instantiate(deathParticle, new Vector2(playerPosition.position.x, playerPosition.position.y), Quaternion.identity);
+            Destroy(particle, 0.5f);
         }
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
 
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
