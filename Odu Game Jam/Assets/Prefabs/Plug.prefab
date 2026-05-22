@@ -232,6 +232,8 @@ MonoBehaviour:
   followMouse: {fileID: 0}
   target: {fileID: 0}
   smoothTime: 0.1
+  cableStamina: {fileID: 0}
+  tensionSnapForce: 3
   isGrabbed: 0
 --- !u!114 &4083227178720851185
 MonoBehaviour:
