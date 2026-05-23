@@ -16,6 +16,7 @@ public class ButtonTrigger : MonoBehaviour
                 if (collision.gameObject.CompareTag("Player"))
                 {
                     door.isOpen = true;
+                    targetPosition = transform.position + new Vector3(0.15f, 0);
                     AudioManager.Instance.PlaySFX(AudioManager.Instance.button);
                     AudioManager.Instance.PlaySFX(AudioManager.Instance.door);
                 }
@@ -37,11 +38,12 @@ public class ButtonTrigger : MonoBehaviour
     {
         if (door.isOpen && SceneManager.GetActiveScene().buildIndex == 3)
         {
-            
+            transform.position = Vector3.Lerp(transform.position, targetPosition, 7 * Time.deltaTime);
+
         }
         else if (door.isOpen && SceneManager.GetActiveScene().buildIndex == 4)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPosition, 5 * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, 7 * Time.deltaTime);
         }
     }
 }
