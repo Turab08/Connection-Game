@@ -50,6 +50,7 @@ MonoBehaviour:
   point2: {fileID: 0}
   speed: 2
   arrivalThreshold: 0.05
+  deathParticle: {fileID: 1039134227921068909, guid: 0042ed60747bee74eb0b41ddac028861, type: 3}
 --- !u!61 &4945017755960912848
 BoxCollider2D:
   m_ObjectHideFlags: 0
