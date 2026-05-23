@@ -8,7 +8,7 @@ public class PlayerCollision : MonoBehaviour
             if (collision.gameObject.CompareTag("Socket"))
             {
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.plugIn);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelLoader.Instance.LoadNextLevel();
             }
 
             if (collision.gameObject.CompareTag("Start"))
@@ -18,7 +18,7 @@ public class PlayerCollision : MonoBehaviour
                     AudioManager.Instance.PlaySFX(AudioManager.Instance.plugIn);
                 }
 
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelLoader.Instance.LoadNextLevel();
             }
 
             if (collision.gameObject.CompareTag("Exit"))
