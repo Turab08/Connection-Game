@@ -5,6 +5,7 @@ public class ButtonTrigger : MonoBehaviour
 {
 
     public DoorOpening door;
+    Vector2 targetPosition;
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Collision Detected with: " + collision.gameObject.name);
@@ -23,11 +24,24 @@ public class ButtonTrigger : MonoBehaviour
                 if (collision.gameObject.CompareTag("Box"))
                 {
                     door.isOpen = true;
+                    targetPosition = transform.position + new Vector3(0, -0.1f);
                     AudioManager.Instance.PlaySFX(AudioManager.Instance.button);
                     AudioManager.Instance.PlaySFX(AudioManager.Instance.door);
                 }
             }
         }
 
+    }
+
+    void Update()
+    {
+        if (door.isOpen && SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            
+        }
+        else if (door.isOpen && SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPosition, 5 * Time.deltaTime);
+        }
     }
 }
