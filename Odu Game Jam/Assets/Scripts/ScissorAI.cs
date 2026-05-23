@@ -12,6 +12,8 @@ public class ScissorAI : MonoBehaviour
 
     private Transform currentTarget;
 
+    [SerializeField] ParticleSystem deathParticle; 
+
     void Start()
     {
         AudioManager.Instance.PlayLoopingSFX(AudioManager.Instance.scissors);
@@ -34,6 +36,9 @@ public class ScissorAI : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //Game over condition
+            ParticleSystem particle = Instantiate(deathParticle, new Vector2(other.gameObject.transform.position.x, other.transform.position.y), Quaternion.identity);
+            Destroy(particle, 0.5f);
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             AudioManager.Instance.PlaySFX(AudioManager.Instance.electricity);
         }    
