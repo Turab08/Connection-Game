@@ -12,7 +12,7 @@ public class PlayerCollision : MonoBehaviour
             }
 
             if (collision.gameObject.CompareTag("Start"))
-            {
+            {   
                 if (AudioManager.Instance != null)
                 {
                     AudioManager.Instance.PlaySFX(AudioManager.Instance.plugIn);

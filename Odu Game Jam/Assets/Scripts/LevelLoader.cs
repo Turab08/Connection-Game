@@ -12,6 +12,14 @@ public class LevelLoader : MonoBehaviour
         Instance = this;
     }
 
+    public void LoadMenu()
+    {
+        StartCoroutine(LoadLevel(0));
+    }
+    public void RestartLevel()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
+    }
     public void LoadNextLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
@@ -21,8 +29,8 @@ public class LevelLoader : MonoBehaviour
     {
         transition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.3f);
 
-
+        SceneManager.LoadScene(levelIndex);
     }
 }

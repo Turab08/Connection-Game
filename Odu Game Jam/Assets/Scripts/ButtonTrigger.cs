@@ -11,7 +11,7 @@ public class ButtonTrigger : MonoBehaviour
         Debug.Log("Collision Detected with: " + collision.gameObject.name);
 
         if (door.isOpen == false) {
-            if (SceneManager.GetActiveScene().buildIndex == 3)
+            if (SceneManager.GetActiveScene().name == "Level 3")
             {
                 if (collision.gameObject.CompareTag("Player"))
                 {
@@ -36,12 +36,12 @@ public class ButtonTrigger : MonoBehaviour
 
     void Update()
     {
-        if (door.isOpen && SceneManager.GetActiveScene().buildIndex == 3)
+        if (door.isOpen && SceneManager.GetActiveScene().name == "Level 3")
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, 7 * Time.deltaTime);
 
         }
-        else if (door.isOpen && SceneManager.GetActiveScene().buildIndex == 4)
+        else if (door.isOpen && SceneManager.GetActiveScene().name == "Level 4")
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, 7 * Time.deltaTime);
         }

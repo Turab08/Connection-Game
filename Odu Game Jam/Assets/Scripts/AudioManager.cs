@@ -61,6 +61,12 @@ public class AudioManager : MonoBehaviour
         {
             PlayMusic(levelMusic);
         }
+
+        // Handle Looping SFX Cleanup
+        if (scene.name == "Epilogue")
+        {
+            StopLoopingSFX();
+        }
     }
 
     public void PlayMusic(AudioClip clip)
@@ -83,5 +89,14 @@ public class AudioManager : MonoBehaviour
         loopingSfxSource.clip = clip;
         loopingSfxSource.loop = true;
         loopingSfxSource.Play();
+    }
+
+    public void StopLoopingSFX()
+    {
+        if (loopingSfxSource != null && loopingSfxSource.isPlaying)
+        {
+            loopingSfxSource.Stop();
+            loopingSfxSource.clip = null; // Clear the clip to be safe
+        }
     }
 }
