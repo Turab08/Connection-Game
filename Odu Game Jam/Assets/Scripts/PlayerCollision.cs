@@ -8,6 +8,7 @@ public class PlayerCollision : MonoBehaviour
             if (collision.gameObject.CompareTag("Socket"))
             {
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.plugIn);
+
                 LevelLoader.Instance.LoadNextLevel();
             }
 
